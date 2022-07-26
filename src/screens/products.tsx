@@ -1,13 +1,15 @@
 import { Center, FlatList, Image, Select, Text, View } from 'native-base';
 import { FC } from 'react';
 import { SafeAreaView } from 'react-native';
+import { TabsHeader } from '../components/tabs-header';
 
 export interface ProductScreenProps {}
 
 export const ProductScreen: FC<ProductScreenProps> = () => {
   return (
     <SafeAreaView>
-      <View h="100%" bg="white">
+      <TabsHeader />
+      <View h="100%">
         <Text fontSize="3xl" fontWeight="bold" px={4}>
           Produtos
         </Text>

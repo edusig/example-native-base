@@ -1,13 +1,12 @@
 import { ThemeProvider } from '@emotion/react';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Button, NativeBaseProvider, View } from 'native-base';
+import { NativeBaseProvider } from 'native-base';
 import { RootStackParamList } from './src/lib/interfaces';
 import { nativeBaseTheme, theme } from './src/lib/theme';
 import { HomeScreen } from './src/screens/home';
 
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DoorOutlinedIcon from './assets/icons/door-outlined.svg';
 import DoorIcon from './assets/icons/door.svg';
@@ -23,8 +22,10 @@ import { InvoicesScreen } from './src/screens/invoices';
 import { NotificationsScreen } from './src/screens/notifications';
 import { ProductScreen } from './src/screens/products';
 import { ProfileScreen } from './src/screens/profile';
+import { ProfileEditScreen } from './src/screens/profile-edit';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+const ProfileStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const MENU_ICON_SIZE = 20;
@@ -44,46 +45,49 @@ const routeIcons: Record<string, { icon: any; iconSelected: any }> = {
   Profile: { icon: <UserOutlinedIcon {...iconProps} />, iconSelected: <UserIcon {...iconProps} /> },
 };
 
+const ProfileStackScreen = () => (
+  <ProfileStack.Navigator initialRouteName="ProfileIndex">
+    <ProfileStack.Screen
+      name="ProfileIndex"
+      component={ProfileScreen}
+      options={{ headerShown: false }}
+    />
+    <ProfileStack.Screen
+      name="ProfileEdit"
+      component={ProfileEditScreen}
+      options={{
+        headerBackTitle: 'Perfil',
+        title: '',
+      }}
+    />
+  </ProfileStack.Navigator>
+);
+
+const navTheme = DefaultTheme;
+navTheme.colors.background = 'white';
+
 export default function App() {
   return (
     <ActionSheetProvider>
       <ThemeProvider theme={theme}>
         <NativeBaseProvider theme={nativeBaseTheme}>
-          <NavigationContainer>
+          <NavigationContainer theme={navTheme}>
             <Tab.Navigator
               initialRouteName="Home"
               screenOptions={({ route }) => ({
-                // contentStyle: { backgroundColor: 'white' },
-                title: '',
-                // headerTransparent: true,
-                headerLeft: () => (
-                  <View ml={4}>
-                    <MaterialCommunityIcons name="home" size={24} />
-                  </View>
-                ),
-                headerRight: () => (
-                  <Button
-                    mr={2}
-                    variant="ghost"
-                    rightIcon={
-                      <MaterialCommunityIcons name="qrcode-scan" size={20} color="#FFCC00" />
-                    }
-                    colorScheme="black"
-                  >
-                    Abrir geladeira
-                  </Button>
-                ),
+                headerShown: false,
                 tabBarIcon: ({ focused }) => {
                   const icon = routeIcons[route.name];
                   return focused ? icon.iconSelected : icon.icon;
                 },
+                tabBarShowLabel: false,
               })}
             >
               <Tab.Screen name="Home" component={HomeScreen} />
               <Tab.Screen name="Product" component={ProductScreen} />
               <Tab.Screen name="Invoices" component={InvoicesScreen} />
               <Tab.Screen name="Notifications" component={NotificationsScreen} />
-              <Tab.Screen name="Profile" component={ProfileScreen} />
+              <Tab.Screen name="Profile" component={ProfileStackScreen} />
             </Tab.Navigator>
           </NavigationContainer>
         </NativeBaseProvider>

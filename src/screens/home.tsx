@@ -2,19 +2,19 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Text } from 'native-base';
 import { FC } from 'react';
-import { SafeAreaView, useWindowDimensions } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { RootStackParamList } from '../lib/interfaces';
 
 import QRCodeImage from '../../assets/scan-qrcode.svg';
+import { TabsHeader } from '../components/tabs-header';
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
-  const dimensions = useWindowDimensions();
-
   return (
     <SafeAreaView>
-      <Center px={6} h="100%" bg="white">
+      <TabsHeader />
+      <Center px={6} h="100%">
         <QRCodeImage width={280} height={258} />
         <Text fontSize="3xl" fontWeight="bold" pt={16}>
           Escaneie o QR Code

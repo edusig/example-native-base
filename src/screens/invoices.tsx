@@ -2,13 +2,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FlatList, Icon, Text, View } from 'native-base';
 import { FC } from 'react';
 import { SafeAreaView } from 'react-native';
+import { TabsHeader } from '../components/tabs-header';
 
 export interface InvoicesScreenProps {}
 
 export const InvoicesScreen: FC<InvoicesScreenProps> = () => {
   return (
     <SafeAreaView>
-      <View h="100%" bg="white">
+      <TabsHeader />
+      <View h="100%">
         <Text fontSize="3xl" fontWeight="bold" px={4}>
           Pedidos
         </Text>
