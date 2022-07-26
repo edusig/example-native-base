@@ -1,0 +1,22 @@
+<svg id="_005-invoice" data-name="005-invoice" xmlns="http://www.w3.org/2000/svg" width="20.123" height="20" viewBox="0 0 20.123 20">
+  <g id="Group_74" data-name="Group 74" transform="translate(3.403 18.52)">
+    <g id="Group_73" data-name="Group 73">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="13.021" height="1.48" fill="#333"/>
+    </g>
+  </g>
+  <g id="Group_80" data-name="Group 80" transform="translate(0 0)">
+    <g id="Group_79" data-name="Group 79">
+      <path id="Path_1049" data-name="Path 1049" d="M19.687,1.658a.741.741,0,0,0-.794.12L16.821,3.611,14.747,1.756a.74.74,0,0,0-.986,0L11.689,3.608,9.617,1.756a.739.739,0,0,0-.986,0L6.557,3.611,4.485,1.778a.74.74,0,0,0-1.23.554V15.5H.74a.74.74,0,0,0-.74.74v1.8a3.53,3.53,0,0,0,3.526,3.526v-1.48A2.049,2.049,0,0,1,1.48,18.041v-1.06H13.07v1.06a3.526,3.526,0,1,0,7.053,0V2.332A.74.74,0,0,0,19.687,1.658Z" transform="translate(0 -1.568)" fill="#333"/>
+    </g>
+  </g>
+  <g id="Group_76" data-name="Group 76" transform="translate(6.954 6.609)">
+    <g id="Group_75" data-name="Group 75">
+      <path id="Path_1047" data-name="Path 1047" d="M182.243,169.726h-4.562a.74.74,0,0,0,0,1.48h4.562a.74.74,0,0,0,0-1.48Z" transform="translate(-176.941 -169.726)" fill="#fff"/>
+    </g>
+  </g>
+  <g id="Group_78" data-name="Group 78" transform="translate(6.954 10.062)">
+    <g id="Group_77" data-name="Group 77">
+      <path id="Path_1048" data-name="Path 1048" d="M185.7,257.569h-8.015a.74.74,0,1,0,0,1.48H185.7a.74.74,0,0,0,0-1.48Z" transform="translate(-176.941 -257.569)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
